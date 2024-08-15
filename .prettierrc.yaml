@@ -1,4 +1,4 @@
-singleQuote: true
-semi: false
-printWidth: 100
-trailingComma: none
+singleQuote: true #シングルクォートを使用
+semi: false #セミコロンを使用しない
+printWidth: 100 #1行の最大文字数
+trailingComma: none #末尾のカンマを使用しない

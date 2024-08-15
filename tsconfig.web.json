@@ -8,11 +8,11 @@
     "src/shared/**/*"
   ],
   "compilerOptions": {
-    "composite": true,
-    "jsx": "react-jsx",
-    "noUnusedLocals": false,
-    "baseUrl": ".",
-    "paths": {
+    "composite": true, // プロジェクトを構成するファイルを一つのプロジェクトとして扱う
+    "jsx": "react-jsx", // ReactのJSXをサポート
+    "noUnusedLocals": false, // 未使用のローカル変数を許可
+    "baseUrl": ".", // パスの基準をプロジェクトのルートに設定
+    "paths": { // パスのエイリアスを設定
       "@renderer/*": [
         "src/renderer/src/*"
       ],
