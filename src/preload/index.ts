@@ -1,22 +1,18 @@
 import { contextBridge } from 'electron'
-import { electronAPI } from '@electron-toolkit/preload'
 
-// Custom APIs for renderer
-const api = {}
+// contextIsolationが有効であることを確認
+if (!process.contextIsolated) {
+  throw new Error('contextIsolationを有効にしてください')
+}
 
-// Use `contextBridge` APIs to expose Electron APIs to
-// renderer only if context isolation is enabled, otherwise
-// just add to the DOM global.
-if (process.contextIsolated) {
-  try {
-    contextBridge.exposeInMainWorld('electron', electronAPI)
-    contextBridge.exposeInMainWorld('api', api)
-  } catch (error) {
-    console.error(error)
-  }
-} else {
-  // @ts-ignore (define in dts)
-  window.electron = electronAPI
-  // @ts-ignore (define in dts)
-  window.api = api
+try {
+  // メインプロセスのAPIをレンダラープロセスに公開
+  contextBridge.exposeInMainWorld('context', {
+    // ここに公開したいAPIを追加
+    // 例:
+    // ipcRenderer: ipcRenderer
+  })
+} catch (error) {
+  // エラーが発生した場合にログを出力
+  console.error(error)
 }
