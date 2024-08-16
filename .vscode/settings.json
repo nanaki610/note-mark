@@ -9,5 +9,5 @@
   "markdownlint.config": {
     "MD041": false
   },
-  "cSpell.words": ["clsx"]
+  "cSpell.words": ["clsx", "mdxeditor", "tailwindcss", "writenote"]
 }
